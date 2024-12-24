@@ -5,3 +5,9 @@ export const createUser = ({ username, password }) =>
     username,
     password,
   });
+
+export const fetchUserSession = ({ username, password }) =>
+  apiFetch("POST", "/users/session", {
+    username,
+    password,
+  });
