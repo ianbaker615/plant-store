@@ -2,8 +2,7 @@ import { useState } from "react";
 import FormContainer from "../../FormContainer";
 import AuthForm from "./AuthForm";
 import { Link } from "react-router-dom";
-import apiFetch from "../../services/apiFetch";
-import * as userService from "../../services/user";
+import * as userService from "services/user";
 
 const SignUpPage = () => {
   const [error, setError] = useState("");
