@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import FormContainer from "FormContainer";
 import AuthForm from "./AuthForm";
 import { Link, useLocation } from "react-router-dom";
 import * as userService from "services/user";
+import SessionContext from "context/SessionContext";
 
 const SignInPage = () => {
+  const sessionContext = useContext(SessionContext);
+
   const [error, setError] = useState("");
   const location = useLocation();
   const newAccount = location.state?.newAccount;
@@ -31,7 +34,9 @@ const SignInPage = () => {
         submitButtonLabel="sign in"
         onSubmit={async (values) => {
           const response = await userService.fetchUserSession(values);
+          const data = await response.json();
           if (response.status === 201) {
+            sessionContext.signIn(data.capstone_session_token);
             setError("");
             console.log("user signed in");
           } else {

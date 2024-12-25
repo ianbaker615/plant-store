@@ -11,3 +11,14 @@ export const fetchUserSession = ({ username, password }) =>
     username,
     password,
   });
+
+const USER_SESSION_TOKEN_KEY = "user_session_token";
+
+export const setUserSessionTokenStorage = (token) =>
+  localStorage.setItem(USER_SESSION_TOKEN_KEY, token);
+
+export const getUserSessionTokenStorage = () =>
+  localStorage.getItem(USER_SESSION_TOKEN_KEY);
+
+export const removeUserSessionTokenStorage = () =>
+  localStorage.removeItem(USER_SESSION_TOKEN_KEY);
