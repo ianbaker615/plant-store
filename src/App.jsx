@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignUpPage from "./pages/auth/SignUpPage";
 import SignInPage from "./pages/auth/SignInPage";
+import PlantListPage from "./pages/PlantListPage";
 import { useState } from "react";
 import SessionContext from "./context/SessionContext";
 import * as userService from "services/user";
@@ -31,6 +32,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<SignInPage />} />
           <Route path="/sign-up" element={<SignUpPage />} />
+          <Route path="/plant-list" element={<PlantListPage />} />
         </Routes>
       </BrowserRouter>
     </SessionContext.Provider>
